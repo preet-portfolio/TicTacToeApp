@@ -9,27 +9,19 @@ import SwiftUI
 
 struct HomeView: View {
     
-    
-    @State var isGameViewPresented = false
+    @StateObject var viewModel = HomeViewModel()
     
     var body: some View {
 
         VStack {
             Button {
-                isGameViewPresented.toggle()
+                viewModel .isGameViewPresented = true
                   } label: {
-                Text("Play")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .frame(width: 300, height: 50)
-                    .background(Color.purple)
-                    .foregroundColor(.white)
-                    .cornerRadius(50)
-
+                      GameButton(title: "Play", backgroundColor: Color(.systemGreen))
                     
                 }
             }
-        .fullScreenCover(isPresented: $isGameViewPresented) {
+        .fullScreenCover(isPresented: $viewModel.isGameViewPresented) {
             GameView()
             
         }
