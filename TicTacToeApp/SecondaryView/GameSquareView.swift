@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GameSquiareView: View {
+struct GameSquareView: View {
     var proxy: GeometryProxy
     
     var body: some View {
